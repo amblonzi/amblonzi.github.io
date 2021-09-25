@@ -377,7 +377,12 @@ section .title::after{
 .skills-content .right .mysql::before{
     width: 70%;
 }
-
+.skills-content .right .python::before{
+    width: 40%;
+}
+.skills-content .right .wordpress::before{
+    width: 90%;
+}
 /* teams section styling */
 .teams .title::after{
     content: "who with me";
