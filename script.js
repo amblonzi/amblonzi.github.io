@@ -35,14 +35,14 @@ $(document).ready(function(){
 
     // typing text animation script
     var typed = new Typed(".typing", {
-        strings: ["ICT Systems Analyst", "Web Developer", "IT Consultant", "Graphic Designer", "Freelancer"],
+        strings: ["ICT Systems Analyst", "Web Developer", "IT Consultant", "Graphics Designer", ],
         typeSpeed: 100,
         backSpeed: 60,
         loop: true
     });
 
     var typed = new Typed(".typing-2", {
-        strings: ["ICT Systems Analyst", "Web Developer", "IT Consultant", "Graphic Designer", "Freelancer"],
+        strings: ["ICT Systems Analyst", "Web Developer", "IT Consultant", "Graphics Designer", ],
         typeSpeed: 100,
         backSpeed: 60,
         loop: true
@@ -71,3 +71,16 @@ $(document).ready(function(){
         }
     });
 });
+
+function sendmail(params){
+var tempParams={
+    from_name:document.getElementById("fromName").value,
+    from_mail:document.getElementById("fromMail").value,
+    message:document.getElementById("message").value,
+};
+emailjs.send('service_bgpt4be','template_csn91pm',tempParams)
+.then(function(res){
+    alert("Send Successful!", res.status);
+    
+})
+}
