@@ -59,8 +59,7 @@
                 <div class="column right">
                     <div class="text">I am Amblonzi and I'm a <span class="typing-2"></span></div>
                     <p>An enthusiastic ICT Systems specialist with attention to detail and
-                    excellent organizational skills. Got a clear understanding in Computer
-                    Systems.</p>
+                    excellent organizational skills. Got a clear understanding in Computer and Cloud Technologies.</p>
                     <a href="#contact">Contact Me</a>
                 </div>
             </div>
@@ -111,7 +110,10 @@
                     <a href="#contact">Hire Me</a>
                 </div>
                 <div class="column right">
-                   <div class="bars">
+
+                    
+
+                    <div class="bars">
                         <div class="info">
                             <span>HTML</span>
                             <span>90%</span>
@@ -212,22 +214,21 @@
                 <div class="column right">
                     <div class="text">Message me</div>
                     <form action="mailto:amblonzi.evans@gmail.com">
+                        
                         <div class="fields">
                             <div class="field name">
-                                <input type="text" placeholder="Name" required>
+                                <input type="text" id= "fromName" placeholder="Enter your Name" required>
                             </div>
                             <div class="field email">
-                                <input type="email" placeholder="Email" required>
+                                <input type="email" id= "fromMail" placeholder="Enter your Email" required>
                             </div>
                         </div>
-                        <div class="field">
-                            <input type="text" placeholder="Subject" required>
-                        </div>
+                       
                         <div class="field textarea">
-                            <textarea cols="30" rows="10" placeholder="Message.." required></textarea>
+                            <textarea cols="30" rows="10" id="message" placeholder="Message.." required></textarea>
                         </div>
                         <div class="button-area">
-                            <button type="submit">Send message</button>
+                            <button onclick= "sendmail()" type="submit">Send message</button>
                         </div>
                     </form>
                 </div>
@@ -241,5 +242,12 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("user_u3RgAmf2WPVZdLeFJoRLF");
+        })();
+    </script>
 </body>
 </html>
