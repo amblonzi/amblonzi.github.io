@@ -35,41 +35,49 @@
         
         
 
-        contactForm: function () {
-            $('.rwt-dynamic-form').on('submit', function (e) {
-				e.preventDefault();
-				var _self = $(this);
-				var __selector = _self.closest('input,textarea');
-				_self.closest('div').find('input,textarea').removeAttr('style');
-				_self.find('.error-msg').remove();
-				_self.closest('div').find('button[type="submit"]').attr('disabled', 'disabled');
-				var data = $(this).serialize();
-				$.ajax({
-					url: 'mail.php',
-					type: "post",
-					dataType: 'json',
-					data: data,
-					success: function (data) {
-						_self.closest('div').find('button[type="submit"]').removeAttr('disabled');
-						if (data.code == false) {
-							_self.closest('div').find('[name="' + data.field + '"]');
-							_self.find('.rn-btn').after('<div class="error-msg"><p>*' + data.err + '</p></div>');
-						} else {
-							$('.error-msg').hide();
-							$('.form-group').removeClass('focused');
-							_self.find('.rn-btn').after('<div class="success-msg"><p>' + data.success + '</p></div>');
-							_self.closest('div').find('input,textarea').val('');
-
-							setTimeout(function () {
-								$('.success-msg').fadeOut('slow');
-							}, 5000);
-						}
-					}
-				});
-			});
-
-        },
-
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the default form submission
+    
+            // Get form data
+            const formData = new FormData(event.target);
+    
+            // Construct the email body
+            const emailBody = `
+                Name: ${formData.get('contact-name')}
+                Phone Number: ${formData.get('contact-phone')}
+                Email: ${formData.get('contact-email')}
+                Subject: ${formData.get('subject')}
+                Message: ${formData.get('contact-message')}
+            `;
+    
+            // Send email using Fetch API
+            fetch('https://formspree.io/f/mvojrbnp', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: 'amblonzi.evans@gmail.com',
+                    subject: formData.get('subject'),
+                    message: emailBody
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to send email');
+                }
+                return response.json();
+            })
+            .then(data => {
+                alert('Message sent successfully');
+                // Optionally, clear form fields after successful submission
+                event.target.reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to send message. Please try again later.');
+            });
+        });
         
         
         wowActive: function () {
