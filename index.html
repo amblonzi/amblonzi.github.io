@@ -406,7 +406,7 @@
         </div>
       </div>
 
-      <form action="https://formspree.io/f/mvojrbnp" method="post" role="form" class="php-email-form mt-4">
+      <form action="forms/contact.php" method="post" role="form" class="php-email-form mt-4">
         <div class="row">
           <div class="col-md-6 form-group">
             <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -438,13 +438,30 @@
   </div>
 
   <!-- Vendor JS Files -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+      emailjs.init("user_u3RgAmf2WPVZdLeFJoRLF"); 
+    })();
+  </script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script type="text/javascript">
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      emailjs.sendForm('service_bgpt4be', 'template_csn91pm', this)
+        .then(function() {
+          alert('Email sent successfully!');
+        }, function(error) {
+          alert('Failed to send email: ' + JSON.stringify(error));
+        });
+    });
+  </script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
