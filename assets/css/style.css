@@ -155,7 +155,8 @@ h6 {
 }
 
 #header.header-top .social-links,
-#header.header-top h2 {
+#header.header-top h2,
+#header.header-top .header-nav-icons {
   display: none;
 }
 
@@ -1234,22 +1235,27 @@ section .container {
   #header .container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align to left on mobile */
+    align-items: center; /* Restore centered alignment */
   }
   
   #header h1, #header h2 {
-    text-align: left;
+    text-align: center;
   }
 
   .header-nav-icons {
     width: 100%;
-    justify-content: space-around;
+    justify-content: center; /* Center icons */
     padding: 15px 0;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border-radius: 10px;
     margin-top: 30px;
+  }
+  
+  .header-nav-icons .nav-item {
+    margin-right: 15px;
+    margin-left: 15px;
   }
 }
 
