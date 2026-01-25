@@ -1218,6 +1218,7 @@ section .container {
   font-size: 24px;
   margin-bottom: 2px;
   color: #00d2ff;
+  transition: transform 0.3s ease;
 }
 
 .header-nav-icons .nav-item:hover,
@@ -1246,7 +1247,21 @@ section .container {
     padding: 15px 0;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     border-radius: 10px;
     margin-top: 30px;
   }
+}
+
+/* Profile Image Polish */
+.profile-img {
+  border-radius: 15px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  border: 2px solid rgba(0, 210, 255, 0.1);
+}
+
+.profile-img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 210, 255, 0.3);
+  border-color: rgba(0, 210, 255, 0.5);
 }
