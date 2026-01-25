@@ -119,6 +119,10 @@ h6 {
   transform: translateY(-5px);
 }
 
+#header .social-links a.whatsapp:hover {
+  background: #25D366;
+}
+
 @media (max-width: 992px) {
   #header h1 {
     font-size: 36px;
@@ -1049,6 +1053,10 @@ section .container {
   color: #00d2ff;
 }
 
+.contact .info-box .social-links a.whatsapp:hover {
+  color: #25D366;
+}
+
 .contact .php-email-form {
   padding: 30px;
   background: rgba(255, 255, 255, 0.08);
@@ -1184,4 +1192,49 @@ section .container {
 
 .credits a:hover {
   color: #fff;
+}
+
+/*--------------------------------------------------------------
+# Mobile Quick Nav
+--------------------------------------------------------------*/
+.mobile-quick-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: rgba(15, 12, 41, 0.8);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.mobile-quick-nav .nav-item {
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.mobile-quick-nav .nav-item i {
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+
+.mobile-quick-nav .nav-item:hover,
+.mobile-quick-nav .nav-item:active {
+  color: #00d2ff;
+}
+
+@media (min-width: 992px) {
+  .mobile-quick-nav {
+    display: none !important;
+  }
 }
