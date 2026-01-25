@@ -1179,9 +1179,8 @@ section .container {
 
 @media (max-width: 992px) {
   .credits {
-    position: static; /* Move out of fixed position */
     text-align: center;
-    padding: 20px 10px 80px; /* Extra bottom padding to avoid mobile nav overlap */
+    padding: 10px;
     background: rgba(0, 0, 0, 0.8);
   }
 }
@@ -1196,47 +1195,58 @@ section .container {
 }
 
 /*--------------------------------------------------------------
-# Mobile Quick Nav
+# Header Nav Icons (Mobile)
 --------------------------------------------------------------*/
-.mobile-quick-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-  background: rgba(15, 12, 41, 0.95);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 8px 0;
+.header-nav-icons {
   display: flex;
-  justify-content: center;
-  transition: all 0.3s;
-  height: 60px;
+  justify-content: flex-start;
+  margin-top: 20px;
 }
 
-.mobile-quick-nav .nav-item {
+.header-nav-icons .nav-item {
   color: rgba(255, 255, 255, 0.7);
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 12px;
+  margin-right: 25px;
+  font-size: 13px;
   text-decoration: none;
   transition: 0.3s;
 }
 
-.mobile-quick-nav .nav-item i {
-  font-size: 20px;
+.header-nav-icons .nav-item i {
+  font-size: 24px;
   margin-bottom: 2px;
-}
-
-.mobile-quick-nav .nav-item:hover,
-.mobile-quick-nav .nav-item:active {
   color: #00d2ff;
 }
 
-@media (min-width: 992px) {
-  .mobile-quick-nav {
-    display: none !important;
+.header-nav-icons .nav-item:hover,
+.header-nav-icons .nav-item:active {
+  color: #fff;
+}
+
+.header-nav-icons .nav-item:hover i {
+  transform: scale(1.1);
+}
+
+@media (max-width: 992px) {
+  #header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align to left on mobile */
+  }
+  
+  #header h1, #header h2 {
+    text-align: left;
+  }
+
+  .header-nav-icons {
+    width: 100%;
+    justify-content: space-around;
+    padding: 15px 0;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    margin-top: 30px;
   }
 }
