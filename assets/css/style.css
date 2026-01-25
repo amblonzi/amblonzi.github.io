@@ -1179,10 +1179,10 @@ section .container {
 
 @media (max-width: 992px) {
   .credits {
+    position: static; /* Move out of fixed position */
     text-align: center;
-    padding: 10px;
+    padding: 20px 10px 80px; /* Extra bottom padding to avoid mobile nav overlap */
     background: rgba(0, 0, 0, 0.8);
-    bottom: 60px; /* Stay above mobile nav */
   }
 }
 
