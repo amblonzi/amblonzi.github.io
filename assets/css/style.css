@@ -1174,7 +1174,7 @@ section .container {
   text-align: right;
   font-size: 13px;
   color: #fff;
-  z-index: 999999;
+  z-index: 9998;
 }
 
 @media (max-width: 992px) {
@@ -1182,6 +1182,7 @@ section .container {
     text-align: center;
     padding: 10px;
     background: rgba(0, 0, 0, 0.8);
+    bottom: 60px; /* Stay above mobile nav */
   }
 }
 
@@ -1203,14 +1204,15 @@ section .container {
   left: 0;
   right: 0;
   z-index: 9999;
-  background: rgba(15, 12, 41, 0.8);
+  background: rgba(15, 12, 41, 0.95);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 10px 0;
+  padding: 8px 0;
   display: flex;
   justify-content: center;
   transition: all 0.3s;
+  height: 60px;
 }
 
 .mobile-quick-nav .nav-item {
