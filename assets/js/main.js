@@ -1,247 +1,315 @@
+/**
+* MODERN MINIMALIST WEB APPLICATION INTERACTION ENGINE
+* Portfolio: Amblonzi Evans - IT Consultant & Specialist
+* Logic: Clean vanilla JS, Intersection Observers, Custom typist, Mouse tracking glow, and premium EmailJS feedback
+*/
 
 (function() {
   "use strict";
 
   /**
-   * Easy selector helper function
+   * Helper utility for selecting elements
    */
   const select = (el, all = false) => {
-    el = el.trim()
+    el = el.trim();
     if (all) {
-      return [...document.querySelectorAll(el)]
+      return [...document.querySelectorAll(el)];
     } else {
-      return document.querySelector(el)
+      return document.querySelector(el);
     }
-  }
+  };
 
   /**
-   * Easy event listener function
+   * Helper utility for adding event listeners
    */
   const on = (type, el, listener, all = false) => {
-    let selectEl = select(el, all)
-
+    let selectEl = select(el, all);
     if (selectEl) {
       if (all) {
-        selectEl.forEach(e => e.addEventListener(type, listener))
+        selectEl.forEach(e => e.addEventListener(type, listener));
       } else {
-        selectEl.addEventListener(type, listener)
+        selectEl.addEventListener(type, listener);
       }
     }
+  };
+
+  /**
+   * 1. Header scroll visual transition
+   */
+  const header = select('#header');
+  if (header) {
+    const handleHeaderScroll = () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
+    window.addEventListener('load', handleHeaderScroll);
+    document.addEventListener('scroll', handleHeaderScroll);
   }
 
   /**
-   * Scrolls to an element with header offset
+   * 2. Mobile nav toggle menu drawer
    */
-  const scrollto = (el) => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
+  const mobileToggleBtn = select('.mobile-nav-toggle');
+  const navbarMenu = select('#navbar');
+  
+  if (mobileToggleBtn && navbarMenu) {
+    on('click', '.mobile-nav-toggle', function(e) {
+      navbarMenu.classList.toggle('navbar-mobile');
+      navbarMenu.classList.toggle('active');
+      this.classList.toggle('bi-list');
+      this.classList.toggle('bi-x');
+    });
   }
 
-  /**
-   * Mobile nav toggle
-   */
-  on('click', '.mobile-nav-toggle', function(e) {
-    select('#navbar').classList.toggle('navbar-mobile')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
-  })
-
-  /**
-   * Scrool with ofset on links with a class name .scrollto
-   */
-  on('click', '#navbar .nav-link, .header-nav-icons .nav-item', function(e) {
-    let section = select(this.hash)
-    if (section) {
-      e.preventDefault()
-
-      let navbar = select('#navbar')
-      let header = select('#header')
-      let sections = select('section', true)
-      let navlinks = select('#navbar .nav-link', true)
-
-      navlinks.forEach((item) => {
-        item.classList.remove('active')
-      })
-
-      this.classList.add('active')
-
-      if (navbar.classList.contains('navbar-mobile')) {
-        navbar.classList.remove('navbar-mobile')
-        let navbarToggle = select('.mobile-nav-toggle')
-        navbarToggle.classList.toggle('bi-list')
-        navbarToggle.classList.toggle('bi-x')
+  // Close mobile nav when clicking a nav link
+  on('click', '#navbar .nav-link', function(e) {
+    if (navbarMenu.classList.contains('navbar-mobile')) {
+      navbarMenu.classList.remove('navbar-mobile');
+      navbarMenu.classList.remove('active');
+      if (mobileToggleBtn) {
+        mobileToggleBtn.classList.add('bi-list');
+        mobileToggleBtn.classList.remove('bi-x');
       }
-
-      if (this.hash == '#header') {
-        header.classList.remove('header-top')
-        sections.forEach((item) => {
-          item.classList.remove('section-show')
-        })
-        return;
-      }
-
-      if (!header.classList.contains('header-top')) {
-        header.classList.add('header-top')
-        setTimeout(function() {
-          sections.forEach((item) => {
-            item.classList.remove('section-show')
-          })
-          section.classList.add('section-show')
-
-        }, 350);
-      } else {
-        sections.forEach((item) => {
-          item.classList.remove('section-show')
-        })
-        section.classList.add('section-show')
-      }
-
-      scrollto(this.hash)
     }
-  }, true)
+  }, true);
 
   /**
-   * Activate/show sections on load with hash links
+   * 3. Typing text effect for the Hero Subtitle
    */
-  window.addEventListener('load', () => {
-    if (window.location.hash) {
-      let initial_nav = select(window.location.hash)
+  const typedTextSpan = select(".typed-text");
+  const textArray = [
+    "IT Consultant",
+    "ICT Systems Specialist", 
+    "Cybersecurity Solutions Specialist",
+    "Cloud Architect"
+  ];
+  const typingSpeed = 80;
+  const erasingSpeed = 40;
+  const newTextDelay = 2000; // Delay between full words
+  let textArrayIndex = 0;
+  let charIndex = 0;
 
-      if (initial_nav) {
-        let header = select('#header')
-        let navlinks = select('#navbar .nav-link', true)
-
-        header.classList.add('header-top')
-
-        navlinks.forEach((item) => {
-          if (item.getAttribute('href') == window.location.hash) {
-            item.classList.add('active')
-          } else {
-            item.classList.remove('active')
-          }
-        })
-
-        setTimeout(function() {
-          initial_nav.classList.add('section-show')
-        }, 350);
-
-        scrollto(window.location.hash)
+  function type() {
+    if (charIndex < textArray[textArrayIndex].length) {
+      if (typedTextSpan) {
+        typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
       }
+      charIndex++;
+      setTimeout(type, typingSpeed);
+    } else {
+      setTimeout(erase, newTextDelay);
+    }
+  }
+
+  function erase() {
+    if (charIndex > 0) {
+      if (typedTextSpan) {
+        typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+      }
+      charIndex--;
+      setTimeout(erase, erasingSpeed);
+    } else {
+      textArrayIndex = (textArrayIndex + 1) % textArray.length;
+      setTimeout(type, typingSpeed + 500);
+    }
+  }
+
+  // Initializing the typing sequence
+  window.addEventListener('DOMContentLoaded', () => {
+    if (typedTextSpan) {
+      setTimeout(type, 1000);
     }
   });
 
   /**
-   * Skills animation
+   * 4. Modern Intersection Observers
    */
-  let skilsContent = select('.skills-content');
-  if (skilsContent) {
-    new Waypoint({
-      element: skilsContent,
-      offset: '80%',
-      handler: function(direction) {
-        let progress = select('.progress .progress-bar', true);
-        progress.forEach((el) => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%'
-        });
-      }
-    })
-  }
-
-  /**
-   * Testimonials slider
-   */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
-      },
-
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 20
-      }
-    }
-  });
-
-  /**
-   * Porfolio isotope and filter
-   */
-  window.addEventListener('load', () => {
-    let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item',
-        layoutMode: 'fitRows'
+  // A. Scroll Reveal Entry Animations
+  const revealElements = select('.reveal', true);
+  if (revealElements.length > 0) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          // Once element is shown, stop observing it for smooth permanent load
+          observer.unobserve(entry.target);
+        }
       });
+    }, {
+      threshold: 0.12,
+      rootMargin: "0px 0px -50px 0px"
+    });
 
-      let portfolioFilters = select('#portfolio-flters li', true);
+    revealElements.forEach(el => revealObserver.observe(el));
+  }
 
-      on('click', '#portfolio-flters li', function(e) {
-        e.preventDefault();
-        portfolioFilters.forEach(function(el) {
-          el.classList.remove('filter-active');
-        });
-        this.classList.add('filter-active');
+  // B. Animated Skills Meter Progression Fill
+  const skillBars = select('.skill-bar-fill', true);
+  const skillsContainer = select('.skills');
+  if (skillsContainer && skillBars.length > 0) {
+    const skillsObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          skillBars.forEach(bar => {
+            const val = bar.getAttribute('aria-valuenow');
+            bar.style.width = val + '%';
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+    skillsObserver.observe(skillsContainer);
+  }
 
-        portfolioIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-      }, true);
+  /**
+   * 5. Smooth Scroll active link spy (ScrollSpy)
+   */
+  const navLinks = select('#navbar .nav-link', true);
+  const sections = select('section', true);
+  const heroSection = select('#hero');
+
+  const scrollSpy = () => {
+    let scrollPos = window.scrollY + 150; // offset
+
+    // Handle home/hero case
+    if (heroSection && scrollPos < heroSection.offsetHeight) {
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === '#hero') {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+      return;
     }
 
+    sections.forEach(section => {
+      const id = section.getAttribute('id');
+      const offset = section.offsetTop;
+      const height = section.offsetHeight;
+
+      if (scrollPos >= offset && scrollPos < offset + height) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + id) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  };
+
+  window.addEventListener('load', scrollSpy);
+  document.addEventListener('scroll', scrollSpy);
+
+  /**
+   * 6. Dynamic light position glow tracking for service cards
+   */
+  const serviceCards = select('.service-card', true);
+  serviceCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
   });
 
   /**
-   * Initiate portfolio lightbox 
+   * 7. Back to Top Button Scrolling Behavior
    */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
-  });
+  const backToTopBtn = select('.back-to-top');
+  if (backToTopBtn) {
+    const toggleBackToTop = () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('active');
+      } else {
+        backToTopBtn.classList.remove('active');
+      }
+    };
+    window.addEventListener('load', toggleBackToTop);
+    document.addEventListener('scroll', toggleBackToTop);
+
+    on('click', '.back-to-top', function(e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
 
   /**
-   * Initiate portfolio details lightbox 
+   * 8. Premium Contact Form with EmailJS integration & Interactive States
    */
-  const portfolioDetailsLightbox = GLightbox({
-    selector: '.portfolio-details-lightbox',
-    width: '90%',
-    height: '90vh'
-  });
+  const contactForm = select('#contact-form');
+  const submitBtn = select('.btn-submit');
+  const submitText = select('.btn-submit .btn-text');
+  const submitIcon = select('.btn-submit i');
+
+  if (contactForm && submitBtn) {
+    contactForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Enter Sending Loading State
+      submitBtn.className = "btn-submit loading";
+      if (submitText) submitText.textContent = "Sending Message...";
+      if (submitIcon) {
+        submitIcon.className = "bi bi-arrow-repeat";
+      }
+
+      // Trigger EmailJS Email Dispatch using exact credentials from previous version
+      emailjs.sendForm('service_bgpt4be', 'template_csn91pm', this)
+        .then(function() {
+          // Success State
+          submitBtn.className = "btn-submit success";
+          if (submitText) submitText.textContent = "Message Sent Successfully!";
+          if (submitIcon) submitIcon.className = "bi bi-check-circle-fill";
+          
+          contactForm.reset();
+
+          // Reset back to base form state after 5 seconds
+          setTimeout(() => {
+            submitBtn.className = "btn-submit";
+            if (submitText) submitText.textContent = "Send Message";
+            if (submitIcon) submitIcon.className = "bi bi-send-fill";
+          }, 5000);
+
+        }, function(error) {
+          // Error State
+          submitBtn.className = "btn-submit error";
+          if (submitText) submitText.textContent = "Failed to Send Message";
+          if (submitIcon) submitIcon.className = "bi bi-exclamation-triangle-fill";
+          
+          console.error('EmailJS Error: ', error);
+
+          // Reset back to base form state after 5 seconds
+          setTimeout(() => {
+            submitBtn.className = "btn-submit";
+            if (submitText) submitText.textContent = "Send Message";
+            if (submitIcon) submitIcon.className = "bi bi-send-fill";
+          }, 5000);
+        });
+    });
+  }
 
   /**
-   * Portfolio details slider
+   * 9. PureCounter Numbers Animation trigger on load
    */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
+  if (typeof PureCounter !== 'undefined') {
+    new PureCounter({
+      selector: '.purecounter',
+      delay: 10,
+      time: 1200,
+      once: true,
+      repeat: false
+    });
+  }
 
-  /**
-   * Initiate Pure Counter 
-   */
-  new PureCounter();
-
-})()
+})();

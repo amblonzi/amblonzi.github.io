@@ -13,476 +13,478 @@
   <link href="assets/img/favicon.ico" rel="icon">
   <link href="assets/img/favicon.ico" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
+  <!-- Google Fonts & Bootstrap Icons -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
+  <!-- Main Revamped CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
-
 </head>
 
 <body>
 
-  <!-- ======= Header ======= -->
+  <!-- Dynamic Ambient Glowing Background Blurs -->
+  <div class="ambient-glows">
+    <div class="glow-blob glow-1"></div>
+    <div class="glow-blob glow-2"></div>
+    <div class="glow-blob glow-3"></div>
+  </div>
+
+  <!-- ======= Header & Navigation Menu ======= -->
   <header id="header">
-    <div class="container">
-
-      <h1><a href="https://amblonzi.github.io">Amblonzi Evans</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
-      <h2>I'm a passionate <span>IT Consultant</span> from Nairobi KE</h2>
-
-      <div class="header-nav-icons d-lg-none">
-        <a href="#header" class="nav-item">
-          <i class="bi bi-house-door"></i>
-          <span>Home</span>
-        </a>
-        <a href="#about" class="nav-item">
-          <i class="bi bi-person"></i>
-          <span>About</span>
-        </a>
-        <a href="#services" class="nav-item">
-          <i class="bi bi-briefcase"></i>
-          <span>Services</span>
-        </a>
-        <a href="#contact" class="nav-item">
-          <i class="bi bi-envelope"></i>
-          <span>Contact</span>
-        </a>
+    <div class="container nav-container">
+      <div class="logo">
+        <h1><a href="#hero">Amblonzi Evans</a></h1>
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link active" href="#header">Home</a></li>
-          <li><a class="nav-link" href="#about">About Me</a></li>
-        
-          <li><a class="nav-link" href="#services">What I Do</a></li>
-          
+          <li><a class="nav-link active" href="#hero">Home</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#skills">Skills</a></li>
+          <li><a class="nav-link" href="#services">Services</a></li>
+          <li><a class="nav-link" href="#interests">Interests</a></li>
           <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+      </nav>
 
       <div class="social-links">
-        <a href="https://twitter.com/amblonzi" target="_blank" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="https://facebook.com/amblonzi" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="https://instagram.com/amblonzi" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="https://linkedin.com/in/amblonzi-evans" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>
-        <a href="https://wa.me/254705522155" target="_blank" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
+        <a href="https://linkedin.com/in/amblonzi-evans" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="https://wa.me/254705522155" target="_blank" class="whatsapp" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        <a href="https://twitter.com/amblonzi" target="_blank" title="Twitter"><i class="bi bi-twitter"></i></a>
+        <a href="https://instagram.com/amblonzi" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
       </div>
 
+      <i class="bi bi-list mobile-nav-toggle"></i>
     </div>
-  </header><!-- End Header -->
+  </header>
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <h3>Welcome to my portfolio</h3>
+          <h1>Hi, I'm <span>Amblonzi Evans</span></h1>
+          <h2>I'm a passionate <span class="typed-text"></span><span class="cursor">&nbsp;</span></h2>
+          <p>
+            An experienced IT Consultant and Systems Specialist dedicated to engineering robust networks, orchestrating advanced cybersecurity postures, and guiding cloud transformation journeys from Nairobi, Kenya.
+          </p>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn-primary">Get in Touch <i class="bi bi-arrow-right-short"></i></a>
+            <a href="#about" class="btn-secondary">About Me</a>
+          </div>
+        </div>
+
+        <div class="hero-image-wrapper">
+          <div class="profile-card-3d">
+            <div class="profile-card-inner">
+              <img src="assets/img/me.png" alt="Amblonzi Evans Profile Picture" class="profile-img-glow">
+            </div>
+          </div>
+          <div class="floating-glass-badge badge-1">
+            <i class="bi bi-code-slash"></i>
+            <span>Software Developer</span>
+          </div>
+          <div class="floating-glass-badge badge-2">
+            <i class="bi bi-cpu"></i>
+            <span>IoT</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>Scroll Down</span>
+      <div class="mouse-wheel"></div>
+    </div>
+  </section>
 
   <!-- ======= About Section ======= -->
-  <section id="about" class="about">
-
-    <!-- ======= About Me ======= -->
-    <div class="about-me container">
-
+  <section id="about" class="reveal">
+    <div class="container">
       <div class="section-title">
-        <h2>About</h2>
-        <p>Me</p>
+        <span class="subtitle">Biography</span>
+        <h2>About Me</h2>
       </div>
 
-      <div class="row">
-        <div class="col-lg-4" data-aos="fade-right">
-          <img src="assets/img/me.png" class="img-fluid profile-img" alt="">
-        </div>
-        <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-          <h3>IT Consultant</h3>
-          <p class="fst-italic">
-            An enthusiastic ICT Systems specialist with attention to detail and excellent organizational skills. I got a clear understanding in Computer Systems.
-          </p>
-          <div class="row">
-            <div class="col-lg-6">
-              <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>amblonzi.github.io</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+254 705 522 155</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Nairobi, Kenya</span></li>
-              </ul>
-            </div>
-            <div class="col-lg-6">
-              <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Undergraduate</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>amblonzi.evans@gmail.com</span></li>
-              </ul>
-            </div>
-          </div>
+      <div class="about-grid">
+        <div class="about-info">
+          <h3>IT Consultant & Solutions Architect</h3>
           <p>
-            With a background in Information Technology and Electrical and Telecommunications Engineering, 
-            I bring a robust technical foundation to the field of IT and technical Consulting.  
+            An enthusiastic ICT Systems specialist with acute attention to detail and excellent organizational skills. Equipped with a deep, holistic understanding of modern computer and network ecosystems, I build infrastructure that empowers scale.
           </p>
           <p>
-            My experience in resolving various IT-related issues has honed my problem-solving skills, making me a reliable partner in navigating the digital landscape.
-          I am dedicated to empowering businesses with innovative and effective IT solutions.
+            Combining a solid academic foundation in Information Technology alongside Telecommunications Engineering, I deliver end-to-end consulting that integrates software engineering principles with robust physical hardware systems.
+          </p>
+          <p>
+            Whether implementing critical security architectures, resolving delicate network topology challenges, or planning hybrid cloud migrations, my mission is to deliver elite, production-grade solutions that optimize workflow efficiency and protect valuable data assets.
           </p>
         </div>
-      </div>
 
-    </div><!-- End About Me -->
-
-    
-
-    <!-- ======= Skills  ======= -->
-    <div class="skills container">
-
-      <div class="section-title">
-        <h2>Skills</h2>
-      </div>
-
-      <div class="row skills-content">
-
-        <div class="col-lg-6">
-
-          <div class="progress">
-            <span class="skill">Technical Proficiency <i class="val">100%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="details-card">
+          <h4>Personal Information</h4>
+          <div class="detail-item">
+            <div class="detail-icon"><i class="bi bi-globe"></i></div>
+            <div class="detail-content">
+              <span class="detail-label">Website</span>
+              <span class="detail-value"><a href="https://amblonzi.github.io" target="_blank">amblonzi.github.io</a></span>
             </div>
           </div>
-
-          <div class="progress">
-            <span class="skill">Problem-Solving <i class="val">90%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+          <div class="detail-item">
+            <div class="detail-icon"><i class="bi bi-envelope-fill"></i></div>
+            <div class="detail-content">
+              <span class="detail-label">Email</span>
+              <span class="detail-value"><a href="mailto:amblonzi.evans@gmail.com">amblonzi.evans@gmail.com</a></span>
             </div>
           </div>
-
-          <div class="progress">
-            <span class="skill">Communication Skills <i class="val">75%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+          <div class="detail-item">
+            <div class="detail-icon"><i class="bi bi-telephone-fill"></i></div>
+            <div class="detail-content">
+              <span class="detail-label">Phone</span>
+              <span class="detail-value"><a href="tel:+254705522155">+254 705 522 155</a></span>
             </div>
           </div>
-
+          <div class="detail-item">
+            <div class="detail-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div class="detail-content">
+              <span class="detail-label">City</span>
+              <span class="detail-value">Nairobi, Kenya</span>
+            </div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon"><i class="bi bi-mortarboard-fill"></i></div>
+            <div class="detail-content">
+              <span class="detail-label">Degree</span>
+              <span class="detail-value">Undergraduate</span>
+            </div>
+          </div>
         </div>
 
-        <div class="col-lg-6">
-
-          <div class="progress">
-            <span class="skill">Project Management <i class="val">80%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+        <!-- Counter Statistics Row -->
+        <div class="stats-grid">
+          <div class="stat-box">
+            <i class="bi bi-check2-circle"></i>
+            <div class="count-wrap">
+              <span class="purecounter count-number" data-purecounter-start="0" data-purecounter-end="85">0</span>
+              <span class="count-suffix">+</span>
             </div>
+            <p>Projects Completed</p>
           </div>
-
-          <div class="progress">
-            <span class="skill">Client Management <i class="val">90%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+          <div class="stat-box">
+            <i class="bi bi-people-fill"></i>
+            <div class="count-wrap">
+              <span class="purecounter count-number" data-purecounter-start="0" data-purecounter-end="40">0</span>
+              <span class="count-suffix">+</span>
             </div>
+            <p>Clients Satisfied</p>
           </div>
-
-          <div class="progress">
-            <span class="skill">Continuous Learning <i class="val">Always Growing</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+          <div class="stat-box">
+            <i class="bi bi-calendar-event-fill"></i>
+            <div class="count-wrap">
+              <span class="purecounter count-number" data-purecounter-start="0" data-purecounter-end="5">0</span>
+              <span class="count-suffix">+</span>
             </div>
+            <p>Years Experience</p>
           </div>
-
         </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- ======= Skills Section ======= -->
+  <section id="skills" class="skills reveal">
+    <div class="container">
+      <div class="section-title">
+        <span class="subtitle">Competencies</span>
+        <h2>My Skills</h2>
       </div>
 
-    </div><!-- End Skills -->
+      <div class="skills-grid">
+        <div class="skill-box">
+          <div class="skill-info">
+            <span class="skill-name">Technical Proficiency</span>
+            <span class="skill-percent">100%</span>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-fill" role="progressbar" aria-valuenow="100"></div>
+          </div>
+        </div>
 
-    <!-- ======= Interests ======= -->
-    <div class="interests container">
+        <div class="skill-box">
+          <div class="skill-info">
+            <span class="skill-name">Problem-Solving</span>
+            <span class="skill-percent">90%</span>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-fill" role="progressbar" aria-valuenow="90"></div>
+          </div>
+        </div>
 
+        <div class="skill-box">
+          <div class="skill-info">
+            <span class="skill-name">Client Management</span>
+            <span class="skill-percent">90%</span>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-fill" role="progressbar" aria-valuenow="90"></div>
+          </div>
+        </div>
+
+        <div class="skill-box">
+          <div class="skill-info">
+            <span class="skill-name">Project Management</span>
+            <span class="skill-percent">80%</span>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-fill" role="progressbar" aria-valuenow="80"></div>
+          </div>
+        </div>
+
+        <div class="skill-box">
+          <div class="skill-info">
+            <span class="skill-name">Communication Skills</span>
+            <span class="skill-percent">75%</span>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-fill" role="progressbar" aria-valuenow="75"></div>
+          </div>
+        </div>
+
+        <div class="skill-box">
+          <div class="skill-info">
+            <span class="skill-name">Continuous Learning</span>
+            <span class="skill-percent">95%</span>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-fill" role="progressbar" aria-valuenow="95"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Services Section ======= -->
+  <section id="services" class="reveal">
+    <div class="container">
       <div class="section-title">
+        <span class="subtitle">Offerings</span>
+        <h2>What I Do</h2>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-card-glow"></div>
+          <div class="service-icon-box"><i class="bx bx-server"></i></div>
+          <h4><a href="#contact">IT Infrastructure</a></h4>
+          <p>Designing, implementing, and managing robust network topologies, virtualized servers, and technical hardware. Ensuring flawless scalability, maximum uptime, and structural defense.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card-glow"></div>
+          <div class="service-icon-box"><i class="bx bx-shield-quarter"></i></div>
+          <h4><a href="#contact">Cybersecurity Solutions</a></h4>
+          <p>Conducting security assessments and deep penetration tests. Implementing stateful firewalls, absolute data encryption schemes, zero-trust policies, and ongoing monitoring services.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card-glow"></div>
+          <div class="service-icon-box"><i class="bx bx-cloud-upload"></i></div>
+          <h4><a href="#contact">Cloud Orchestration</a></h4>
+          <p>Assisting smooth migrations into AWS, Microsoft Azure, or GCP architectures. Fine-tuning container environments, automating workflows, and installing secure backup frameworks.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card-glow"></div>
+          <div class="service-icon-box"><i class="bx bx-analyse"></i></div>
+          <h4><a href="#contact">Data Analytics & BI</a></h4>
+          <p>Analyzing raw database aggregates to deliver key business intelligence. Building custom real-time dashboards, reporting tools, and secure data warehouse integration pipelines.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card-glow"></div>
+          <div class="service-icon-box"><i class="bx bx-code-block"></i></div>
+          <h4><a href="#contact">Software Engineering</a></h4>
+          <p>Building high-performance custom applications tailored to unique enterprise scale needs. Seamlessly connecting multi-platform APIs and maintaining clean, test-covered codebases.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card-glow"></div>
+          <div class="service-icon-box"><i class="bx bx-conversation"></i></div>
+          <h4><a href="#contact">Strategic Consulting</a></h4>
+          <p>Offering premium consulting to align your technology investments with overarching business targets. Performing hardware audits, risk analyses, and workflow digital mapping.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Interests Section ======= -->
+  <section id="interests" class="reveal">
+    <div class="container">
+      <div class="section-title">
+        <span class="subtitle">Focus Areas</span>
         <h2>Interests</h2>
       </div>
 
-      <div class="row">
-        <div class="col-lg-3 col-md-4">
-          <div class="icon-box">
-            <i class="ri-fingerprint-line" style="color: #ffbb2c;"></i>
-            <h3>Cybersecurity</h3>
-          </div>
+      <div class="interests-grid">
+        <div class="interest-badge">
+          <i class="ri-fingerprint-line" style="color: #ffbb2c;"></i>
+          <h3>Cybersecurity</h3>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <i class="ri-cloud-line" style="color: #5578ff;"></i>
-            <h3>Cloud Computing</h3>
-          </div>
+        <div class="interest-badge">
+          <i class="ri-cloud-line" style="color: #5578ff;"></i>
+          <h3>Cloud Platforms</h3>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <i class="ri-line-chart-line" style="color: #e80368;"></i>
-            <h3>Data Analytics</h3>
-          </div>
+        <div class="interest-badge">
+          <i class="ri-line-chart-line" style="color: #e80368;"></i>
+          <h3>Data Engineering</h3>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
-          <div class="icon-box">
-            <i class="ri-brain-fill" style="color: #e361ff;"></i>
-            <h3>Artificial Intelligence</h3>
-          </div>
+        <div class="interest-badge">
+          <i class="ri-brain-fill" style="color: #e361ff;"></i>
+          <h3>AI Systems</h3>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-switch-line" style="color: #47aeff;"></i>
-            <h3>Network Infrastructure</h3>
-          </div>
+        <div class="interest-badge">
+          <i class="ri-switch-line" style="color: #47aeff;"></i>
+          <h3>Networking</h3>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
-            <h3>Software Development</h3>
-          </div>
+        <div class="interest-badge">
+          <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
+          <h3>Development</h3>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
-            <h3>IT Strategy and Planning</h3>
-          </div>
+        <div class="interest-badge">
+          <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
+          <h3>IT Strategy</h3>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-ie-line" style="color: #4233ff;"></i>
-            <h3>IoT (Internet of Things)</h3>
-          </div>
+        <div class="interest-badge">
+          <i class="ri-ie-line" style="color: #4233ff;"></i>
+          <h3>IoT Hardware</h3>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-anchor-line" style="color: #b2904f;"></i>
-            <h3>Business Process Optimization</h3>
-          </div>
+        <div class="interest-badge">
+          <i class="ri-anchor-line" style="color: #b2904f;"></i>
+          <h3>Workflow Opt</h3>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-gps-fill" style="color: #b20969;"></i>
-            <h3>Digital Transformation</h3>
-          </div>
+        <div class="interest-badge">
+          <i class="ri-gps-fill" style="color: #b20969;"></i>
+          <h3>Digital Shift</h3>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-presentation-line" style="color: #ff5828;"></i>
-            <h3>Training and Development</h3>
-          </div>
+        <div class="interest-badge">
+          <i class="ri-presentation-line" style="color: #ff5828;"></i>
+          <h3>Tech Training</h3>
         </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-weight-line" style="color: #29cc61;"></i>
-            <h3>Compliance and Risk Management</h3>
-          </div>
+        <div class="interest-badge">
+          <i class="ri-weight-line" style="color: #29cc61;"></i>
+          <h3>Risk & Compliance</h3>
         </div>
       </div>
-
-    </div><!-- End Interests -->
-
-    <!-- 
-
-          
-
-      
-
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-
-      <div class="owl-carousel testimonials-carousel">
-
-      </div>
-
-    </div><!-- End Testimonials  -->
-
-  </section><!-- End About Section -->
-
-  
-
-  <!-- ======= Services Section ======= -->
-  <section id="services" class="services">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>What I Do</h2>
-        <p>My Services</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-server"></i></div>
-            <h4><a href="">IT Infrastructure Setup and Management</a></h4>
-            <p>Designing, implementing, and managing network systems, servers, and hardware.
-              Ensuring optimal performance, scalability, and security of IT infrastructure.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-fingerprint"></i></div>
-            <h4><a href="">Cybersecurity Solutions</a></h4>
-            <p>Conducting security assessments and vulnerability testing.
-              Implementing firewalls, encryption, and other security measures.
-              Providing ongoing monitoring and incident response services.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-cloud-upload"></i></div>
-            <h4><a href="">Cloud Services and Migration</a></h4>
-            <p>Assisting clients in migrating to cloud platforms such as AWS, Azure, or Google Cloud.
-              Managing cloud environments, optimizing performance, and ensuring cost-efficiency.
-              Implementing cloud-based backup and disaster recovery solutions.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bxs-data"></i></div>
-            <h4><a href="">Data Analytics and Business Intelligence</a></h4>
-            <p>Analyzing data to provide insights and support data-driven decision-making.
-              Developing custom dashboards and reporting tools.
-              Implementing data warehousing and management solutions.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon"><i class='bx bxs-objects-vertical-bottom' ></i></div>
-            <h4><a href="">Software Development and Integration</a></h4>
-            <p>Creating custom software applications tailored to specific business needs.
-              Integrating various software systems to ensure seamless operation.
-              Providing maintenance and updates for existing software solutions.
-              </p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-chalkboard"></i></div>
-            <h4><a href="">IT Consulting and Strategy</a></h4>
-            <p>Offering expert advice on IT strategy and planning to align with business objectives.
-              Conducting technology audits and recommending improvements.
-              Assisting with digital transformation initiatives and technology adoption.</p>
-          </div>
-        </div>
-
-      </div>
-
     </div>
-  </section><!-- End Services Section -->
-
-  
+  </section>
 
   <!-- ======= Contact Section ======= -->
-  <section id="contact" class="contact">
+  <section id="contact" class="reveal">
     <div class="container">
-
       <div class="section-title">
-        <h2>Contact</h2>
-        <p>Contact Me</p>
+        <span class="subtitle">Get in Touch</span>
+        <h2>Contact Me</h2>
       </div>
 
-      <div class="row mt-2">
-
-        <div class="col-md-6 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-map"></i>
-            <h3>My Address</h3>
-            <p>Mombasa Road, Nairobi, Kenya</p>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-info-box">
+            <i class="bi bi-geo-alt"></i>
+            <div>
+              <h3>My Address</h3>
+              <p>Mombasa Road, Nairobi, Kenya</p>
+            </div>
           </div>
-        </div>
 
-        <div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-share-alt"></i>
-            <h3>Social Profiles</h3>
+          <div class="contact-info-box">
+            <i class="bi bi-envelope"></i>
+            <div>
+              <h3>Email Me</h3>
+              <p><a href="mailto:amblonzi.evans@gmail.com">amblonzi.evans@gmail.com</a></p>
+            </div>
+          </div>
+
+          <div class="contact-info-box">
+            <i class="bi bi-telephone"></i>
+            <div>
+              <h3>Call Me</h3>
+              <p><a href="tel:+254705522155">+254 705 522 155</a></p>
+            </div>
+          </div>
+
+          <div class="contact-socials">
+            <h4>Social Channels</h4>
             <div class="social-links">
-              <a href="https://twitter.com/amblonzi" target="_blank" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="https://facebook.com/amblonzi" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="https://instagram.com/amblonzi" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
-              <a href="https://linkedin.com/in/amblonzi-evans" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              <a href="https://linkedin.com/in/amblonzi-evans" target="_blank"><i class="bi bi-linkedin"></i></a>
               <a href="https://wa.me/254705522155" target="_blank" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
+              <a href="https://twitter.com/amblonzi" target="_blank"><i class="bi bi-twitter"></i></a>
+              <a href="https://instagram.com/amblonzi" target="_blank"><i class="bi bi-instagram"></i></a>
+              <a href="https://facebook.com/amblonzi" target="_blank"><i class="bi bi-facebook"></i></a>
             </div>
           </div>
         </div>
 
-        <div class="col-md-6 mt-4 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-envelope"></i>
-            <h3>Email Me</h3>
-            <p>amblonzi.evans@gmail.com</p>
-          </div>
-        </div>
-        <div class="col-md-6 mt-4 d-flex align-items-stretch">
-        <div class="info-box">
-          <i class="bx bx-phone-call"></i>
-          <h3>Call Me</h3>
-          <p><a href="tel:+254705522155">+254 705 522 155</a></p>
-        </div>
+        <div class="contact-form-wrapper">
+          <form id="contact-form">
+            <!-- EmailJS Script Load and Instance Injection -->
+            <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+            <script type="text/javascript">
+              (function() {
+                emailjs.init("m-sr4I_Uhc6V12Kgz"); 
+              })();
+            </script>
+
+            <div class="form-row">
+              <div class="form-group">
+                <input type="text" name="name" class="form-control" id="name" placeholder=" " required>
+                <label for="name">Your Name</label>
+              </div>
+              <div class="form-group">
+                <input type="email" name="email" class="form-control" id="email" placeholder=" " required>
+                <label for="email">Your Email</label>
+              </div>
+            </div>
+
+            <div class="form-group full-width">
+              <input type="text" name="subject" class="form-control" id="subject" placeholder=" " required>
+              <label for="subject">Subject</label>
+            </div>
+
+            <div class="form-group full-width">
+              <textarea name="message" class="form-control" id="message" placeholder=" " required></textarea>
+              <label for="message">Message</label>
+            </div>
+
+            <button type="submit" class="btn-submit">
+              <span class="btn-text">Send Message</span>
+              <i class="bi bi-send-fill"></i>
+            </button>
+          </form>
         </div>
       </div>
-
-      <form id="contact-form">
-        <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
-  <script type="text/javascript">
-    (function() {
-      emailjs.init("m-sr4I_Uhc6V12Kgz"); 
-    })();
-  </script>
-        <div class="row">
-          <div class="col-md-6 form-group">
-            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-          </div>
-          <div class="col-md-6 form-group mt-3 mt-md-0">
-            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-          </div>
-        </div>
-        <div class="form-group mt-3">
-          <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-        </div>
-        <div class="form-group mt-3">
-          <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-       
-        <div class="text-center"><button type="submit">Send Message</button></div>
-      </form>
-      <script type="text/javascript">
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-          event.preventDefault();
-    
-          emailjs.sendForm('service_bgpt4be', 'template_csn91pm', this)
-            .then(function() {
-              alert('Email sent successfully!');
-            }, function(error) {
-              alert('Failed to send email: ' + JSON.stringify(error));
-            });
-        });
-      </script>
-
     </div>
-  </section><!-- End Contact Section -->
+  </section>
 
-  <div class="credits">
-    
-    &copy; 2026 <a href="https://amblonzi.github.io/">amblonzi</a>
-  </div>
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 <a href="https://amblonzi.github.io/">amblonzi</a>. All Rights Reserved.</p>
+      <p>Designed with <i class="bi bi-heart-fill" style="color: var(--color-secondary); font-size: 12px;"></i> in Nairobi KE</p>
+    </div>
+  </footer>
 
-  <!-- Vendor JS Files -->
-  
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Core Files -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  
 
-  <!-- Template Main JS File -->
+  <!-- Custom Core Script File -->
   <script src="assets/js/main.js"></script>
-
 </body>
 
 </html>
